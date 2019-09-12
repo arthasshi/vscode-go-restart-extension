@@ -1,0 +1,67 @@
+{
+	"name": "go-restart",
+	"displayName": "go-restart",
+	"description": "vscode golang service restart",
+	"version": "0.0.1",
+	"publisher": "arthas",
+	"engines": {
+		"vscode": "^1.38.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.goRestart"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.goRestart",
+				"title": "Go restart"
+			}
+		],
+		"keybindings": [{
+			"command": "extension.goRestart",
+			"key": "ctrl+f10",
+			"mac": "cmd+f10",
+			"when": "editorFocus"
+		}],
+		"menus" : {
+			"editor/title": [
+                {
+                    "command": "extension.goRestart",
+                    "group": "navigation"
+                }
+			],
+			"editor/title/context": [
+                {
+                    "when": "editorFocus",
+                    "command": "extension.goRestart",
+                    "group": "z_commands"
+                }
+			],
+			"explorer/context": [
+                {
+                    "command": "extension.goRestart",
+                    "group": "z_commands"
+                }
+            ]
+		}
+	},
+	
+	"scripts": {
+		"test": "node ./test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^10.12.21",
+		"@types/vscode": "^1.38.0",
+		"eslint": "^5.13.0",
+		"glob": "^7.1.4",
+		"mocha": "^6.1.4",
+		"typescript": "^3.3.1",
+		"vscode-test": "^1.0.2"
+	}
+}
